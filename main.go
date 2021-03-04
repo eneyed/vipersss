@@ -14,6 +14,8 @@ func main() {
 	vipe := viper.NewWithOptions(viper.KeyDelimiter("_"))
 	vipe.SetConfigName("config")
 	vipe.SetConfigType("yml")
+	replacer := strings.NewReplacer(".", "_")
+	viper.SetEnvKeyReplacer(replacer)
 
 	// Set the path to look for the configurations file
 	vipe.AddConfigPath(".")
